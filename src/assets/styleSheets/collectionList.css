@@ -1,0 +1,34 @@
+
+
+.collectionSec{
+
+}
+
+.collectionSec_topbar{
+
+}
+
+.collectionSec_items{
+    margin: 0 10vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 5rem;
+}
+
+.itemCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: 100%;
+    border: 1px solid #f9f9f9;
+    border-radius: 15px;
+}
+
+.itemCard .itemInfo{
+    text-align: center;
+}
+
+.itemCard .itemThumbnail{
+
+}
