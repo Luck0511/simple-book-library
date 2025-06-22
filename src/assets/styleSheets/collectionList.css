@@ -1,11 +1,19 @@
-
-
 .collectionSec{
 
 }
 
 .collectionSec_topbar{
 
+}
+
+.topBar_searchBar{
+
+}
+
+.topBar_searchBar input{
+    border:none;
+    width:100%;
+    background-color: white;
 }
 
 .collectionSec_items{
@@ -21,14 +29,21 @@
     align-items: center;
     width: auto;
     height: 100%;
-    border: 1px solid #f9f9f9;
+    border: 3px solid gray;
     border-radius: 15px;
+    background-color: #ffffff;
 }
 
 .itemCard .itemInfo{
     text-align: center;
+    color: #242424;
 }
 
 .itemCard .itemThumbnail{
+    margin-top: 1rem;
+    border-radius: 15px;
+}
 
+.itemInfo h1,h2,h3,h4,h5,h6, p{
+    margin: 8px 0;
 }
