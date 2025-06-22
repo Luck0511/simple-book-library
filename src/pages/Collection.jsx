@@ -5,7 +5,10 @@ const Collection = () =>{
     return (
         <div className="collectionSec">
             <div className="collectionSec_topbar">
-
+                <div className="topBar_searchBar">
+                    <label for="searcBar">Search: </label> <br/>
+                    <input type="text" placeholder="Search..." id="searcBar" name="searcBar"/>
+                </div>
             </div>
             <div className="collectionSec_items">
                 {collection.map((item) => (
