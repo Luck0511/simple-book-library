@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "title": "1984",
+    "author": "George Orwell",
+    "description": "A dystopian novel about totalitarianism and constant surveillance.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780451524935-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg",
+    "year": 1949,
+    "genre": "Dystopian",
+    "isbn": "9780451524935"
+  },
+  {
+    "id": 2,
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "description": "A fantasy adventure that follows Bilbo Baggins on a quest to reclaim a treasure from a dragon.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780547928227-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9780547928227-L.jpg",
+    "year": 1937,
+    "genre": "Fantasy",
+    "isbn": "9780547928227"
+  },
+  {
+    "id": 3,
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "description": "A powerful story about racial injustice in the Deep South.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780060935467-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9780060935467-L.jpg",
+    "year": 1960,
+    "genre": "Classic",
+    "isbn": "9780060935467"
+  },
+  {
+    "id": 4,
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "description": "A story of wealth, obsession, and the American Dream in the 1920s.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780743273565-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg",
+    "year": 1925,
+    "genre": "Classic",
+    "isbn": "9780743273565"
+  },
+  {
+    "id": 5,
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "description": "A futuristic society controlled by technology, conformity, and a loss of individuality.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780060850524-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9780060850524-L.jpg",
+    "year": 1932,
+    "genre": "Dystopian",
+    "isbn": "9780060850524"
+  },
+  {
+    "id": 6,
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "description": "The inner monologue of a disillusioned teenager struggling with society and identity.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780316769488-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9780316769488-L.jpg",
+    "year": 1951,
+    "genre": "Coming-of-Age",
+    "isbn": "9780316769488"
+  },
+  {
+    "id": 7,
+    "title": "Fahrenheit 451",
+    "author": "Ray Bradbury",
+    "description": "A future where books are outlawed and 'firemen' burn any that are found.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9781451673319-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9781451673319-L.jpg",
+    "year": 1953,
+    "genre": "Dystopian",
+    "isbn": "9781451673319"
+  },
+  {
+    "id": 8,
+    "title": "Moby Dick",
+    "author": "Herman Melville",
+    "description": "A sea captain's obsessive quest to hunt a great white whale.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780679783275-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9780679783275-L.jpg",
+    "year": 1851,
+    "genre": "Adventure",
+    "isbn": "9780679783275"
+  },
+  {
+    "id": 9,
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "description": "A classic romance that explores manners, morality, and marriage.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780141439518-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg",
+    "year": 1813,
+    "genre": "Romance",
+    "isbn": "9780141439518"
+  },
+  {
+    "id": 10,
+    "title": "The Martian",
+    "author": "Andy Weir",
+    "description": "A stranded astronaut must survive on Mars using science and ingenuity.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780553418026-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9780553418026-L.jpg",
+    "year": 2011,
+    "genre": "Science Fiction",
+    "isbn": "9780553418026"
+  },
+  {
+    "id": 11,
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "description": "A sweeping sci‑fi saga set on a desert planet where politics and prophecy intertwine.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780441172719-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9780441172719-L.jpg",
+    "year": 1965,
+    "genre": "Science Fiction",
+    "isbn": "9780441172719"
+  },
+  {
+    "id": 12,
+    "title": "Ender’s Game",
+    "author": "Orson Scott Card",
+    "description": "A gifted child is trained through simulations to defend Earth from alien threats.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780812550702-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9780812550702-L.jpg",
+    "year": 1985,
+    "genre": "Science Fiction",
+    "isbn": "9780812550702"
+  },
+  {
+    "id": 13,
+    "title": "The Left Hand of Darkness",
+    "author": "Ursula K. Le Guin",
+    "description": "A diplomat explores a world where gender is fluid and politics are icy.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780441478125-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9780441478125-L.jpg",
+    "year": 1969,
+    "genre": "Science Fiction",
+    "isbn": "9780441478125"
+  },
+  {
+    "id": 14,
+    "title": "Neuromancer",
+    "author": "William Gibson",
+    "description": "A hacker is pulled into a web of AI and corporate espionage in a cyberpunk future.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780441569595-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9780441569595-L.jpg",
+    "year": 1984,
+    "genre": "Cyberpunk",
+    "isbn": "9780441569595"
+  },
+  {
+    "id": 15,
+    "title": "Slaughterhouse-Five",
+    "author": "Kurt Vonnegut",
+    "description": "A darkly comic tale of war, time travel, and existential reflection.",
+    "coverImage": "https://covers.openlibrary.org/b/isbn/9780440180296-M.jpg",
+    "largeImage": "https://covers.openlibrary.org/b/isbn/9780440180296-L.jpg",
+    "year": 1969,
+    "genre": "Satire",
+    "isbn": "9780440180296"
+  }
+]
