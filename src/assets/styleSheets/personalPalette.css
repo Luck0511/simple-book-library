@@ -1,0 +1,87 @@
+:root{
+
+/*color palette: DEFAULT*/
+    --dark-purple: hsla(261, 54%, 10%, 1);            /*sidebars, topbar, footer*/
+    --honeydew: hsla(141, 30%, 91%, 1);               /*floating element background*/
+    --mid-gray: hsla(153, 6%, 80%, 1);                /*middle gray - to use in sections containing honeydew*/
+    --ash-gray: hsla(153, 6%, 70%, 1);                /*general background*/
+
+    --light-gray: hsla(0, 0%, 65%, 1);                /*text*/
+    --darker-gray: hsla(0, 0%, 50%, 1);               /*strong text over ash/gray*/
+    --rich-black: hsla(226, 100%, 3%, 1);             /*titles*/
+
+    --naples-yellow: hsla(44, 81%, 67%, 1);           /*important element*/
+    --brighter-naples-yellow: hsla(44, 81%, 72%, 1);  /*hover important element*/
+    --naples-yellow-glow: hsla(44, 100%, 72%, 0.85);  /*glow when hover*/
+    --darker-naples-yellow: hsla(44, 81%, 55%, 1);    /*pressed element*/
+    --bluey-gray: hsla(223, 18%, 35%, 1);             /*accent border, disabled element*/
+    --cool-slate: hsla(223, 10%, 55%, 1);             /*disabled element text*/
+
+    --surface-shadow: hsla(0, 0%, 0%, 0.08);          /* soft shadow over light */
+    --surface-glow: hsla(44, 81%, 67%, 0.2);          /* soft glow in yellow tint */
+
+    --pale-naples-yellow: hsla(44, 100%, 72%, 0.7);  /* matches glow, but optimized for outlines, FOCUS RING */
+
+/* === Feedback Colors === */
+    /* Success */
+    --success-green: hsla(141, 45%, 40%, 1);           /* Main success color */
+    --success-green-soft: hsla(141, 45%, 85%, 1);      /* Backgrounds / tags */
+    --success-green-border: hsla(141, 45%, 50%, 1);    /* Border or hover */
+
+    /* Error */
+    --error-red: hsla(0, 65%, 55%, 1);                 /* Main error color */
+    --error-red-soft: hsla(0, 65%, 90%, 1);            /* Backgrounds / subtle */
+    --error-red-border: hsla(0, 65%, 65%, 1);          /* Border or hover */
+
+    /* Warning */
+    --warning-orange: hsla(35, 85%, 60%, 1);           /* Main warning color */
+    --warning-orange-soft: hsla(35, 85%, 88%, 1);      /* Light bg or tag */
+    --warning-orange-border: hsla(35, 85%, 70%, 1);    /* Hover / border */
+
+    /* Info */
+    --info-blue: hsla(210, 90%, 60%, 1);               /* Main info color */
+    --info-blue-soft: hsla(210, 90%, 88%, 1);          /* Card, badge, etc */
+    --info-blue-border: hsla(210, 90%, 70%, 1);        /* Hover / focus */
+
+/*Color properties: allows dynamic color change*/
+    --background-color: var(--ash-gray);
+    --section-background: var(--mid-gray);
+    --element-background: var(--honeydew);
+    --side-background: var(--dark-purple);
+
+    --title: var(--rich-black);
+    --text: var(--light-gray);
+
+    --important-element: var(--naples-yellow);
+    --disabled-element: var(--bluey-gray);
+    --disabled-text: var(--cool-slate);
+    --hover-element: var(--brighter-naples-yellow);
+    --borderBox-hover-glow:                             /*glow effect when hovering important element*/
+    0 0 10px 4px var(--naples-yellow-glow),
+    0 0 20px 8px var(--naples-yellow-glow);
+    --hover-text: var(--rich-black);
+    --pressed-element: var(--darker-naples-yellow);
+    --pressed-text: var(--cool-slate);
+}
+
+/*Dark theme*/
+:root[data-theme='dark'] {
+    --dark-gray: hsla(223, 10%, 18%, 1);
+    --darker-gray: hsla(223, 10%, 12%, 1);
+
+    --background-color: var(--dark-gray);
+    --section-background: var(--darker-gray);
+    --element-background: var(--bluey-gray);
+    --side-background: var(--rich-black);
+
+    --text: var(--light-gray);                          /* stays readable */
+    --title: var(--honeydew);                           /* brighter for headers */
+
+    --important-element: var(--naples-yellow);          /* pops in dark theme */
+    --hover-element: var(--brighter-naples-yellow);
+    --hover-text: var(--rich-black);
+    --pressed-element: var(--darker-naples-yellow);
+    --pressed-text: var(--cool-slate);
+    --disabled-element: var(--bluey-gray);
+    --disabled-text: var(--cool-slate);
+}
