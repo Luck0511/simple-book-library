@@ -50,7 +50,9 @@
     --side-background: var(--dark-purple);
 
     --title: var(--rich-black);
+    --strong-text: var(--darker-gray);
     --text: var(--light-gray);
+    --text-on-side: var(--naples-yellow);
 
     --important-element: var(--naples-yellow);
     --disabled-element: var(--bluey-gray);
@@ -75,7 +77,9 @@
     --side-background: var(--rich-black);
 
     --text: var(--light-gray);                          /* stays readable */
+    --strong-text: var(--darker-gray);
     --title: var(--honeydew);                           /* brighter for headers */
+    --text-on-side: var(--naples-yellow);
 
     --important-element: var(--naples-yellow);          /* pops in dark theme */
     --hover-element: var(--brighter-naples-yellow);

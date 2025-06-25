@@ -2,6 +2,7 @@
 
 import App from "../App.jsx";
 import Collection from "../pages/Collection";
+import Item from "../pages/Item";
 
 export const routes = [
     {
@@ -12,6 +13,12 @@ export const routes = [
             {
                 path: 'collection',
                 element: <Collection />,
+                children: [
+                    {
+                        path: 'collection/item',
+                        element: <Item />
+                    }
+                ]
             },
         ]
     },

@@ -7,8 +7,7 @@ function App() {
         <>
             <div className="heroSec">
                 <div className="heroSec_logo">
-                    <h1>SBL</h1>
-                    <h2>Simple Book Library</h2>
+                    <img src="src/assets/logo/LogoTitle.svg" alt="logo"/>
                 </div>
                 <nav className="heroSec_nav">
                     <ul>

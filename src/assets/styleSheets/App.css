@@ -1,4 +1,71 @@
 #root {
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  background-color: var(--background-color);
+}
+
+Outlet{
+  width: 100%;
+}
+
+.heroSec{
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: clamp(100px, 15vh, 25vh);
+  padding: 0 3rem;
+  background-color: var(--side-background);
+  color: var(--text-on-side);
+}
+
+.heroSec .heroSec_logo{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 75%;
+  background-color: var(--section-background);
+  border-radius: 16px;
+}
+
+.heroSec_logo img{
+  height: 100%;
+  margin: 1rem;
+  padding: 8px;
+}
+
+.heroSec .heroSec_nav{
+  display: flex;
+  align-items: center;
+}
+
+.heroSec .heroSec_nav ul{
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 3rem;
+}
+
+.heroSec .heroSec_nav ul li{
+
+  list-style: none;
+}
+
+.heroSec .heroSec_nav ul li a{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--important-element);
+  width: 100px;
+  height: 40px;
+  border-radius: 0.5rem;
+  transition-duration: 0.3s;
+}
+
+.heroSec .heroSec_nav ul li a:hover{
+  background-color: var(--hover-element);
+  box-shadow: var(--borderBox-hover-glow);
+  transition-duration: 0.3s;
 }
