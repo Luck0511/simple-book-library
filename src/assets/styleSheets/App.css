@@ -3,7 +3,7 @@
   background-color: var(--background-color);
 }
 
-Outlet{
+.outletChild{
   width: 100%;
 }
 

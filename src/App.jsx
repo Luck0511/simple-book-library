@@ -29,7 +29,7 @@ function App() {
                     </ul>
                 </nav>
             </div>
-            <Outlet/>
+            <Outlet className="outletChild"/>
         </>
     )
 }
