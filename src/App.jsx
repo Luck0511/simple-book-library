@@ -12,17 +12,17 @@ function App() {
                 <nav className="heroSec_nav">
                     <ul>
                         <li>
-                            <NavLink to="/" style={({isActive}) => isActive ? {fontWeight: 'bold'} : {}}>
+                            <NavLink to="/" className="navLink">
                                 Home
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/collection" style={({isActive}) => isActive ? {fontWeight: 'bold'} : {}}>
+                            <NavLink to="/collection" className="navLink">
                                 Collection
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/" style={({isActive}) => isActive ? {fontWeight: 'bold'} : {}}>
+                            <NavLink to="/" className="navLink">
                                 Empty
                             </NavLink>
                         </li>

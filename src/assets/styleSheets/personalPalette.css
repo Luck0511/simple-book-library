@@ -55,6 +55,7 @@
     --text-on-side: var(--naples-yellow);
 
     --important-element: var(--naples-yellow);
+    --element-text: var(--rich-black);
     --disabled-element: var(--bluey-gray);
     --disabled-text: var(--cool-slate);
     --hover-element: var(--brighter-naples-yellow);
@@ -82,6 +83,7 @@
     --text-on-side: var(--naples-yellow);
 
     --important-element: var(--naples-yellow);          /* pops in dark theme */
+    --element-text: var(--rich-black);
     --hover-element: var(--brighter-naples-yellow);
     --hover-text: var(--rich-black);
     --pressed-element: var(--darker-naples-yellow);

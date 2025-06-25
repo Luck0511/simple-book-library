@@ -48,7 +48,6 @@
 }
 
 .heroSec .heroSec_nav ul li{
-
   list-style: none;
 }
 
@@ -64,8 +63,17 @@
   transition-duration: 0.3s;
 }
 
-.heroSec .heroSec_nav ul li a:hover{
+.heroSec .heroSec_nav ul li .navLink:hover{
   background-color: var(--hover-element);
   box-shadow: var(--borderBox-hover-glow);
+  color: var(--hover-text);
+  translate: 0 0.3rem;
   transition-duration: 0.3s;
+}
+
+
+.heroSec_nav .navLink{
+  text-decoration: none;
+  color: var(--element-text);
+  font-weight: bold;
 }
