@@ -3,7 +3,7 @@
 /*color palette: DEFAULT*/
     --dark-purple: hsla(261, 54%, 10%, 1);            /*sidebars, topbar, footer*/
     --honeydew: hsla(141, 30%, 91%, 1);               /*floating element background*/
-    --mid-gray: hsla(153, 6%, 80%, 1);                /*middle gray - to use in sections containing honeydew*/
+    --mid-gray: hsla(153, 6%, 80%, 1);                /*mid gray - to use in sections containing honeydew*/
     --ash-gray: hsla(153, 6%, 70%, 1);                /*general background*/
 
     --light-gray: hsla(0, 0%, 65%, 1);                /*text*/
@@ -64,7 +64,7 @@
     0 0 20px 8px var(--naples-yellow-glow);
     --hover-text: var(--rich-black);
     --pressed-element: var(--darker-naples-yellow);
-    --pressed-text: var(--cool-slate);
+    --pressed-text: var(--bluey-gray);
 }
 
 /*Dark theme*/
@@ -91,3 +91,19 @@
     --disabled-element: var(--bluey-gray);
     --disabled-text: var(--cool-slate);
 }
+
+/* === Animation elements ===*/
+
+    /*pulse glowing animation for pressed elements*/
+    @keyframes pulse-glow {
+        0%, 100% {
+            box-shadow:
+            0 0 20px var(--pressed-element),
+            0 0 30px var(--pressed-element);
+        }
+        50% {
+            box-shadow:
+            0 0 10px var(--pressed-element),
+            0 0 20px var(--pressed-element);
+        }
+    }

@@ -51,15 +51,17 @@
   list-style: none;
 }
 
-.heroSec .heroSec_nav ul li a{
+.heroSec .heroSec_nav ul li .navLink{
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--important-element);
   width: 100px;
   height: 40px;
   border-radius: 0.5rem;
+  background-color: var(--important-element);
+  color: var(--element-text);
+  font-weight: bold;
   transition-duration: 0.3s;
 }
 
@@ -67,13 +69,13 @@
   background-color: var(--hover-element);
   box-shadow: var(--borderBox-hover-glow);
   color: var(--hover-text);
-  translate: 0 0.3rem;
+  translate: 0 0.5rem;
   transition-duration: 0.3s;
 }
 
-
-.heroSec_nav .navLink{
-  text-decoration: none;
-  color: var(--element-text);
-  font-weight: bold;
+.heroSec .heroSec_nav ul li .active{
+  background-color: var(--pressed-element);
+  animation: pulse-glow 2.5s ease-in-out infinite;
+  color: var(--pressed-text);
+  translate: 0 0.5rem;
 }
