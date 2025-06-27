@@ -56,6 +56,7 @@
 
     --important-element: var(--naples-yellow);
     --element-text: var(--rich-black);
+    --element-border: 1px solid var(--bluey-gray);       /*elements borders*/
     --disabled-element: var(--bluey-gray);
     --disabled-text: var(--cool-slate);
     --hover-element: var(--brighter-naples-yellow);
@@ -91,6 +92,11 @@
     --disabled-element: var(--bluey-gray);
     --disabled-text: var(--cool-slate);
 }
+
+/* === Style elements === */
+    .icon{
+        width: 4rem;
+    }
 
 /* === Animation elements ===*/
 

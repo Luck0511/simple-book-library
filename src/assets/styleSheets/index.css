@@ -1,10 +1,9 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Inter", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color: var(--rich-black);
-  background-color: var(--ash-gray);
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,6 +15,9 @@ body{
   margin: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Merriweather", serif;
+}
 
 @media (prefers-color-scheme: light) {
   :root {

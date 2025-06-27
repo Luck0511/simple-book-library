@@ -21,8 +21,8 @@ export const routes = [
                 element: <Collection/>,
                 children: [
                     {
-                        path: 'collection/item',
-                        element: <Item/>
+                        path: 'item',
+                        element: <Item item={null} />
                     }
                 ]
             },

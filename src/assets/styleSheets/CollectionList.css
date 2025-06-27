@@ -1,13 +1,45 @@
 .collectionSec{
-    background-color: var(--section-background);
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background-color);
+    width: 100vw;
 }
 
 .collectionSec_topbar{
     background-color: var(--section-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    width: 75%;
+    border: var(--element-border);
+    border-radius: 2rem;
 }
 
 .topBar_searchBar{
+    padding: 0.5rem;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.topBar_searchBar label{
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    padding-right: 1rem;
+    color: var(--element-text);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.topBar_searchBar input{
+    font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
+    width: 10px;
+    border: var(--element-border);
+    border-radius: 0.5rem;
 }
 
 .topBar_searchBar input{
@@ -17,7 +49,9 @@
 }
 
 .collectionSec_items{
-    margin: 0 10vw;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 4rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 5rem;
@@ -58,4 +92,12 @@
 
 .itemInfo h1,h2,h3,h4,h5,h6, p{
     margin: 8px 0;
+}
+
+.outletPopUp{
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    right: 50%;
 }

@@ -15,6 +15,7 @@
   width: 100%;
   height: clamp(100px, 15vh, 25vh);
   padding: 0 3rem;
+  border-radius: 0 0 2rem 2rem;
   background-color: var(--side-background);
   color: var(--text-on-side);
 }
@@ -69,7 +70,7 @@
   background-color: var(--hover-element);
   box-shadow: var(--borderBox-hover-glow);
   color: var(--hover-text);
-  translate: 0 0.5rem;
+  translate: 0 0.25rem;
   transition-duration: 0.3s;
 }
 
