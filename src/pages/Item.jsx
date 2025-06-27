@@ -6,3 +6,4 @@ const Item = ({ itemID }) =>{
         </>
     )
 }
+export default Item;

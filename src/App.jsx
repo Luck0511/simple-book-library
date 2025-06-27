@@ -3,34 +3,34 @@ import {Outlet} from "react-router";
 import {NavLink} from "react-router-dom";
 
 function App() {
+    const activeLink= ({isActive})=> isActive ? 'navLink active' : 'navLink';
     return (
         <>
             <div className="heroSec">
-                <div className="heroSec_logo">
-                    <h1>SBL</h1>
-                    <h2>Simple Book Library</h2>
-                </div>
+                <NavLink to="/" className="heroSec_logo">
+                    <img src="src/assets/logo/LogoTitle.svg" alt="logo"/>
+                </NavLink>
                 <nav className="heroSec_nav">
                     <ul>
                         <li>
-                            <NavLink to="/" style={({isActive}) => isActive ? {fontWeight: 'bold'} : {}}>
+                            <NavLink to="/" className={activeLink}>
                                 Home
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/collection" style={({isActive}) => isActive ? {fontWeight: 'bold'} : {}}>
+                            <NavLink to="/collection" className={activeLink}>
                                 Collection
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/" style={({isActive}) => isActive ? {fontWeight: 'bold'} : {}}>
-                                Empty
+                            <NavLink to="/about" className={activeLink}>
+                                About
                             </NavLink>
                         </li>
                     </ul>
                 </nav>
             </div>
-            <Outlet/>
+            <Outlet className="outletChild"/>
         </>
     )
 }

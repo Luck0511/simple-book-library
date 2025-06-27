@@ -1,18 +1,18 @@
 .collectionSec{
-
+    background-color: var(--section-background);
+    width: 100%;
 }
 
 .collectionSec_topbar{
-
+    background-color: var(--section-background);
 }
 
 .topBar_searchBar{
-
 }
 
 .topBar_searchBar input{
     border:none;
-    width:100%;
+    width:80%;
     background-color: white;
 }
 
@@ -24,19 +24,31 @@
 }
 
 .itemCard{
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: auto;
     height: 100%;
-    border: 3px solid gray;
+    border: 2px solid var(--bluey-gray);
     border-radius: 15px;
-    background-color: #ffffff;
+    background-color: var(--element-background);
+    box-shadow: 5px 10px 8px var(--surface-shadow);
+    transition: 0.3s;
+}
+
+.itemCard:hover{
+    cursor: pointer;
+    box-shadow:
+            0 6px 12px var(--surface-shadow),
+            0 0 10px 4px var(--surface-glow);
+    translate: 0 -1rem;
+    transition: 0.3s ease;
 }
 
 .itemCard .itemInfo{
     text-align: center;
-    color: #242424;
+    color: var(--title);
 }
 
 .itemCard .itemThumbnail{
