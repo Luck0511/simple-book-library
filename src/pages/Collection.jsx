@@ -1,18 +1,26 @@
-import '../assets/styleSheets/personalStyle.css'
+import '../assets/styleSheets/personalStyle.css';
 import '../assets/styleSheets/CollectionList.css';
 import collection from "../collection/collection.json";
 import {Outlet} from "react-router";
 import {NavLink} from "react-router-dom";
 import {createContext, useState} from "react";
 
+
 export const ItemContext=createContext(null);
+export const ItemProvider = ({ children, selectedItem }) => {
+    return (
+        <ItemContext.Provider value={selectedItem}>
+            {children}
+        </ItemContext.Provider>
+    );
+};
 
 const Collection = () =>{
     const [selectedItem, setSelectedItem] = useState(null);
 
     const selectItem = (item) => {
         setTimeout(()=>{
-            setSelectedItem(item)
+            setSelectedItem(item);
             console.log('done')},200)
     }
     return (
@@ -27,9 +35,9 @@ const Collection = () =>{
                 </div>
             </div>
             <div className="outletPopUp">
-                <ItemContext.Provider value={selectedItem}>
-                    <Outlet itemID={selectedItem}/>
-                </ItemContext.Provider>
+                <ItemProvider selectedItem={selectedItem}>
+                    <Outlet/>
+                </ItemProvider>
             </div>
             <div className="collectionSec_items">
                 {collection.map((item) => (
