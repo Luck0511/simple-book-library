@@ -1,2 +1,9 @@
-.itemCard{
+.popUpCard{
+    min-width: fit-content;
+    min-height: fit-content;
+    width: clamp(50px, 80vw, 85vw);
+    height: clamp(50px, 50vw, 70vw);
+    background-color: var(--element-background);
+    border: var(--element-border);
+    display: flex;
 }
