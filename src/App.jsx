@@ -4,7 +4,6 @@ import {NavLink} from "react-router-dom";
 
 function App() {
     const activeLink= ({isActive})=> isActive ? 'navLink active' : 'navLink';
-    const onClickStyle= ()=> 'translate: 0 0.5rem;';
     return (
         <>
             <div className="heroSec">
