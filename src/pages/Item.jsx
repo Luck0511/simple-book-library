@@ -10,8 +10,10 @@ const Item = () => {
             <div className="popUpCard">
                 <img className="itemThumbnail" src={item?.largeImage} alt="Cover Image" />
                 <div className="itemInfo">
-                    <h3>{item?.title} - {item?.author}</h3>
-                    <h5>genre: {item?.genre} - year:{item?.year}</h5>
+                    <h2>{item?.title} - {item?.author}</h2>
+                    <h4>{item?.genre} - {item?.year}</h4>
+                    <p><strong>ISBN code:</strong> {item?.isbn}</p>
+                    <p>{item?.description}</p>
                 </div>
             </div>
         </ItemProvider>

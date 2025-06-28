@@ -21,7 +21,7 @@ const Collection = () =>{
     const selectItem = (item) => {
         setTimeout(()=>{
             setSelectedItem(item);
-            console.log('done')},200)
+            console.log('done')},10)
     }
     return (
         <div className="collectionSec">
@@ -46,7 +46,7 @@ const Collection = () =>{
                             <img className="itemThumbnail" src={item.coverImage} alt="Cover Image" />
                             <div className="itemInfo">
                                 <h3>{item.title} - {item.author}</h3>
-                                <h5>genre: {item.genre} - year:{item.year}</h5>
+                                <h5>{item.genre} - {item.year}</h5>
                             </div>
                         </div>
                     </NavLink>
