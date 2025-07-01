@@ -1,10 +1,14 @@
 import '../assets/styleSheets/personalStyle.css';
 import '../assets/styleSheets/CollectionList.css';
-import collection from "../collection/collection.json";
 import {Outlet} from "react-router";
 import {NavLink} from "react-router-dom";
-import {createContext, useState} from "react";
+import {createContext, useEffect, useState} from "react";
+import axios from 'axios';
 
+const API_KEY = 'ZDwgZRGSseBHQV72X9TRPVR3qjxoFPcC';
+
+const bestNonFiction = `https://api.nytimes.com/svc/books/v3/lists/current/combined-print-and-e-book-nonfiction.json?api-key=${API_KEY}`
+const bestFiction = `https://api.nytimes.com/svc/books/v3/lists/combined-print-and-e-book-fiction.json?api-key=${API_KEY}`
 
 export const ItemContext=createContext(null);
 export const ItemProvider = ({ children, selectedItem }) => {
@@ -16,6 +20,35 @@ export const ItemProvider = ({ children, selectedItem }) => {
 };
 
 const Collection = () =>{
+    const [bestCollections, setCollections] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    /*bestsellers collection setUp*/
+    useEffect(() => {
+        const fetchBest = async () => {
+            console.log('Fetching bestseller...');
+            try {
+                setLoading(true);
+                const [nonFiction, fiction] = await Promise.all([
+                    axios.get(bestNonFiction)
+                        .then((response) => response.data),
+                    axios.get(bestFiction)
+                        .then((response) => response.data),
+                ]);
+                console.log(nonFiction.results.books);
+                console.log(fiction.results.books);
+                setCollections([nonFiction.results.books, fiction.results.books]);
+            }catch (error) {
+                setLoading(false);
+                console.log('Error fetching books:',error);
+            }finally {
+                console.log('Fetching ended');
+                setLoading(false);
+            }
+        }
+        fetchBest();
+    },[])
+
     const [selectedItem, setSelectedItem] = useState(null);
 
     const selectItem = (item) => {
@@ -39,17 +72,22 @@ const Collection = () =>{
                     <Outlet/>
                 </ItemProvider>
             </div>
-            <div className="collectionSec_items">
-                {collection.map((item) => (
-                    <NavLink key={item.id} to="item" onClick={()=>selectItem(item)}>
-                        <div className="itemCard">
-                            <img className="itemThumbnail" src={item.coverImage} alt="Cover Image" />
-                            <div className="itemInfo">
-                                <h3>{item.title} - {item.author}</h3>
-                                <h5>{item.genre} - {item.year}</h5>
-                            </div>
-                        </div>
-                    </NavLink>
+            <div className="collectionSec_wrapper">
+                {bestCollections?.map((bestList, index) => (
+                    <div key={index} className="collectionSec_items">
+                        <p>Hello {index}</p>
+                        {bestList?.map((item) => (
+                            <NavLink key={item.primary_isbn13} to="item" onClick={()=>selectItem(item)}>
+                                <div className="itemCard">
+                                    <img className="itemThumbnail" src={item.book_image} alt="Cover Image" />
+                                    <div className="itemInfo">
+                                        <h3>{item.title} - {item.author}</h3>
+                                        <h5>{item.genre} - {item.year}</h5>
+                                    </div>
+                                </div>
+                            </NavLink>
+                        ))}
+                    </div>
                 ))}
             </div>
         </div>

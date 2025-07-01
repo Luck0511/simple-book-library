@@ -49,22 +49,29 @@
     background-color: white;
 }
 
+.collectionSec_wrapper{
+    display: flex;
+    box-sizing: border-box;
+    margin: 0 5rem;
+    width: 100%;
+}
+
 .collectionSec_items{
     box-sizing: border-box;
     width: 100%;
-    padding: 0 4rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 5rem;
+    gap: 3rem;
 }
 
 .itemCard{
     margin-top: 1rem;
+    padding: 0 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: auto;
-    height: 100%;
+    width: 30vw;
+    height: 75vh;
     border: 2px solid var(--bluey-gray);
     border-radius: 15px;
     background-color: var(--element-background);
@@ -97,7 +104,7 @@
 
 .outletPopUp{
     z-index: 1;
-    position: absolute;
+    position: fixed;
     left: 50%;
     transform: translate(-50%, -10%);
 }
