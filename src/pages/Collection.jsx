@@ -5,13 +5,12 @@ import {NavLink} from "react-router-dom";
 import {createContext, useEffect, useState} from "react";
 import axios from 'axios';
 
-const API_KEY = 'ZDwgZRGSseBHQV72X9TRPVR3qjxoFPcC';
+const apiKey = import.meta.env.VITE_apikey;
+const bestNonFiction = `https://api.nytimes.com/svc/books/v3/lists/current/combined-print-and-e-book-nonfiction.json?api-key=${apiKey}`
+const bestFiction = `https://api.nytimes.com/svc/books/v3/lists/combined-print-and-e-book-fiction.json?api-key=${apiKey}`
 
-const bestNonFiction = `https://api.nytimes.com/svc/books/v3/lists/current/combined-print-and-e-book-nonfiction.json?api-key=${API_KEY}`
-const bestFiction = `https://api.nytimes.com/svc/books/v3/lists/combined-print-and-e-book-fiction.json?api-key=${API_KEY}`
-
-export const ItemContext=createContext(null);
-export const ItemProvider = ({ children, selectedItem }) => {
+export const ItemContext = createContext(null);
+export const ItemProvider = ({children, selectedItem}) => {
     return (
         <ItemContext.Provider value={selectedItem}>
             {children}
@@ -19,7 +18,7 @@ export const ItemProvider = ({ children, selectedItem }) => {
     );
 };
 
-const Collection = () =>{
+const Collection = () => {
     const [bestCollections, setCollections] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -35,26 +34,24 @@ const Collection = () =>{
                     axios.get(bestFiction)
                         .then((response) => response.data),
                 ]);
-                console.log(nonFiction.results.books);
-                console.log(fiction.results.books);
-                setCollections([nonFiction.results.books, fiction.results.books]);
-            }catch (error) {
+                setCollections([nonFiction.results, fiction.results]);
+                console.log('Book fetching successful')
+            } catch (error) {
                 setLoading(false);
-                console.log('Error fetching books:',error);
-            }finally {
+                console.error('Error fetching books:', error);
+            } finally {
                 console.log('Fetching ended');
                 setLoading(false);
             }
         }
-        fetchBest();
-    },[])
+        fetchBest().catch((error) => console.error(error));
+    }, [])
 
     const [selectedItem, setSelectedItem] = useState(null);
 
     const selectItem = (item) => {
-        setTimeout(()=>{
-            setSelectedItem(item);
-            console.log('done')},10)
+        setSelectedItem(item);
+        console.log('done');
     }
     return (
         <div className="collectionSec">
@@ -72,22 +69,29 @@ const Collection = () =>{
                     <Outlet/>
                 </ItemProvider>
             </div>
+            {loading && <h2 style={{textAlign: 'center', fontSize: '32px', color: 'var(--title)'}}>Loading
+                bestsellers...</h2>}
             <div className="collectionSec_wrapper">
                 {bestCollections?.map((bestList, index) => (
-                    <div key={index} className="collectionSec_items">
-                        <p>Hello {index}</p>
-                        {bestList?.map((item) => (
-                            <NavLink key={item.primary_isbn13} to="item" onClick={()=>selectItem(item)}>
-                                <div className="itemCard">
-                                    <img className="itemThumbnail" src={item.book_image} alt="Cover Image" />
-                                    <div className="itemInfo">
-                                        <h3>{item.title} - {item.author}</h3>
-                                        <h5>{item.genre} - {item.year}</h5>
+                    <section className="section_Wrapper" key={index}>
+                        <h2 className="sectionHeader"><b><i>Bestsellers of the week:</i></b><br/>{bestList.display_name}</h2>
+                        <div className="section_Items">
+                            {bestList.books?.map((item) => (
+                                <NavLink key={item.primary_isbn13}
+                                         to="item"
+                                         className="itemCard_wrapper"
+                                         onClick={() => selectItem(item)}>
+                                    <div className="itemCard">
+                                        <h2>-{item.rank}-</h2>
+                                        <br/>
+                                        <h3 className="itemInfo">{item.title}</h3>
+                                        <img className="itemThumbnail" src={item.book_image} alt="Cover Image"/>
+                                        <h4 className="itemInfo">{item.author}</h4>
                                     </div>
-                                </div>
-                            </NavLink>
-                        ))}
-                    </div>
+                                </NavLink>
+                            ))}
+                        </div>
+                    </section>
                 ))}
             </div>
         </div>
