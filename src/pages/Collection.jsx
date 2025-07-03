@@ -84,9 +84,9 @@ const Collection = () => {
                                     <div className="itemCard">
                                         <h2>-{item.rank}-</h2>
                                         <br/>
-                                        <h3 className="itemInfo">{item.title}</h3>
-                                        <img className="itemThumbnail" src={item.book_image} alt="Cover Image"/>
+                                        <h3 className="itemInfo"><i>{item.title}</i></h3>
                                         <h4 className="itemInfo">{item.author}</h4>
+                                        <img className="itemThumbnail" src={item.book_image} alt="Cover Image"/>
                                     </div>
                                 </NavLink>
                             ))}
