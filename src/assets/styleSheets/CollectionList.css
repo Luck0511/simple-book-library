@@ -79,7 +79,7 @@
     grid-template-columns: 50% 50%;
     box-sizing: border-box;
     grid-template-rows: repeat(auto-fill, 30vh);
-    border: var(--element-border);
+    gap: 0.4rem;
     border-radius: 1rem;
 }
 
@@ -102,7 +102,7 @@
     transition: 0.3s;
 }
 
-.itemInfo h1,h2,h3,h4,h5,h6, p{
+.cardInfo h1,h2,h3,h4,h5,h6, p{
     margin:0.5rem;
 }
 
@@ -112,16 +112,16 @@
     box-shadow:
             0 6px 12px var(--surface-shadow),
             0 0 10px 4px var(--surface-glow);
-    translate: 0 -3rem;
-    transition: 0.3s ease;
+    translate: 0 -25%;
+    transition: 0.4s ease;
 }
 
-.itemCard .itemInfo{
+.itemCard .cardInfo{
     text-align: center;
     color: var(--title);
 }
 
-.itemCard .itemThumbnail{
+.itemCard .cardThumbnail{
     font-size: 0.8rem;
     margin: 1rem 0;
     border-radius: 15px;

@@ -10,9 +10,9 @@ const bestNonFiction = `https://api.nytimes.com/svc/books/v3/lists/current/combi
 const bestFiction = `https://api.nytimes.com/svc/books/v3/lists/combined-print-and-e-book-fiction.json?api-key=${apiKey}`
 
 export const ItemContext = createContext(null);
-export const ItemProvider = ({children, selectedItem}) => {
+export const ItemProvider = ({children, passedItem}) => {
     return (
-        <ItemContext.Provider value={selectedItem}>
+        <ItemContext.Provider value={passedItem}>
             {children}
         </ItemContext.Provider>
     );
@@ -58,14 +58,14 @@ const Collection = () => {
             <div className="collectionSec_topbar">
                 <div className="topBar_searchBar">
                     <label htmlFor="searcBar">
-                        <img src="src/assets/icons/BooksIcon.svg" alt="booksSymbol" className="icon"/>
+                        <img src="/icons/BooksIcon.svg" alt="booksSymbol" className="icon"/>
                         <p>Search:</p>
                     </label>
                     <input type="text" placeholder="Book title..." id="searcBar" name="searcBar"/>
                 </div>
             </div>
             <div className="outletPopUp">
-                <ItemProvider selectedItem={selectedItem}>
+                <ItemProvider passedItem={selectedItem}>
                     <Outlet/>
                 </ItemProvider>
             </div>
@@ -74,25 +74,28 @@ const Collection = () => {
             <div className="collectionSec_wrapper">
                 {bestCollections?.map((bestList, index) => (
                     <section className="section_Wrapper" key={index}>
-                        <h2 className="sectionHeader"><b><i>Bestsellers of the week:</i></b><br/>{bestList.display_name}</h2>
+                        <h2 className="sectionHeader"><b><i>Bestsellers of the
+                            week:</i></b><br/>{bestList.display_name}</h2>
                         <div className="section_Items">
                             {bestList.books?.map((item) => (
                                 <NavLink key={item.primary_isbn13}
-                                         to="item"
-                                         className="itemCard_wrapper"
-                                         onClick={() => selectItem(item)}>
+                                         to={`item`}
+                                         onClick={()=>selectItem(item)}
+                                         className="itemCard_wrapper">
                                     <div className="itemCard">
                                         <h2>-{item.rank}-</h2>
                                         <br/>
-                                        <h3 className="itemInfo"><i>{item.title}</i></h3>
-                                        <h4 className="itemInfo">{item.author}</h4>
-                                        <img className="itemThumbnail" src={item.book_image} alt="Cover Image"/>
+                                        <h3 className="cardInfo"><i>{item.title}</i>
+                                        </h3>
+                                        <h4 className="cardInfo">{item.author}</h4>
+                                        <img className="cardThumbnail" src={item.book_image} alt="Cover Image"/>
                                     </div>
                                 </NavLink>
                             ))}
                         </div>
                     </section>
-                ))}
+                ))
+                }
             </div>
         </div>
     )

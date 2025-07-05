@@ -22,7 +22,7 @@ export const routes = [
                 children: [
                     {
                         path: 'item',
-                        element: <Item item={null} />
+                        element: <Item />
                     }
                 ]
             },
@@ -31,9 +31,5 @@ export const routes = [
                 element: <About/>,
             }
         ]
-    },
-    {
-        path: '*',
-        element: <h1>404 not found (custom)</h1>,
-    },
+    }
 ];
