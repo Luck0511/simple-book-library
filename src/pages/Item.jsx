@@ -24,7 +24,7 @@ const Item = () => {
                     <h5 style={{margin:0}}>Buy links:</h5>
                     <ul style={{margin:0}}>
                         {item?.buy_links.map((link, index) => (
-                            <li ley={index}>
+                            <li key={index}>
                                 <a href={link.url}><i>{link.name}</i></a>
                             </li>
                         ))}
