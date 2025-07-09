@@ -1,9 +1,41 @@
 .popUpCard{
     min-width: fit-content;
     min-height: fit-content;
-    width: clamp(50px, 80vw, 85vw);
-    height: clamp(50px, 50vw, 70vw);
+    width: clamp(50px, 60vw, 80vw);
+    height: clamp(50px, 40vw, 60vw);
     background-color: var(--element-background);
     border: var(--element-border);
+    border-radius: 25px;
+    overflow: hidden;
     display: flex;
+    justify-content: space-between;
+}
+
+.itemCover{
+    padding: 1rem;
+    border-radius: 25px;
+}
+
+.itemInfo{
+    padding-top: 2rem;
+    overflow: scroll;
+}
+
+.clearButton{
+    background-color: var(--error-red);
+    border: 2px var(--error-red-border) solid;
+    color: var(--title);
+    border-radius: 25px;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 5%;
+    height: 5%;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.clearButton:hover{
+    background-color: var(--warning-orange);
+    border-color: var(--warning-orange-border);
 }

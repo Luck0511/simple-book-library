@@ -10,19 +10,19 @@
 .collectionSec_topbar{
     background-color: var(--section-background);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin: 1rem;
+    margin: 2rem;
     width: 75%;
     border: var(--element-border);
-    border-radius: 2rem;
+    border-radius: 1.5rem;
 }
 
 .topBar_searchBar{
-    padding: 0.5rem;
-    width: 60%;
+    padding: 1rem;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .topBar_searchBar label{
@@ -35,69 +35,162 @@
     font-weight: bold;
 }
 
-.topBar_searchBar input{
+#searchSymbol{
+    display: flex;
+    justify-self: flex-start;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 2rem;
+}
+
+.inputWrapper{
+    display: flex;
+    border-radius: 0.5rem;
+    border: var(--element-border);
+    width: 75%;
+    height: 3rem;
+    overflow: hidden;
+}
+
+.topBar_searchBar #searchBar{
+    background-color: var(--element-background);
     font-family: "Inter", sans-serif;
     font-size: 1.2rem;
-    width: 10px;
-    border: var(--element-border);
-    border-radius: 0.5rem;
+    text-align: end;
+    padding-right: 1rem;
+    border: none;
+    width:100%;
 }
 
-.topBar_searchBar input{
-    border:none;
-    width:80%;
-    background-color: white;
+.topBar_searchBar #searchBar:focus{
+    outline:4px solid var(--info-blue-border);
+    outline-offset: -3px;
+
 }
 
-.collectionSec_items{
-    box-sizing: border-box;
+
+#searchBtn{
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    border: none;
+    /*border-radius: 0 0.5rem 0.5rem 0;*/
+    background-color: var(--important-element);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#searchBtn label{
     width: 100%;
-    padding: 0 4rem;
+    height: 100%;
+    padding: 0;
+    align-items: center;
+}
+
+#searchIcon{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+/*#searchBtn:hover{
+    background-color: var(--hover-element);
+}*/
+
+#searchIcon:hover{
+    backdrop-filter: brightness(90%);
+}
+
+.collectionSec_wrapper{
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 5rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100vh;
+    gap: 4rem;
+    padding: 0 10vw;
+    box-sizing: border-box;
+}
+
+.section_Wrapper{
+    display: grid;
+    grid-template-areas:
+    "header header"
+    "body body";
+    grid-template-rows: 8rem 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.sectionHeader{
+    grid-area: header;
+    text-align: center;
+    height: 100%;
+}
+
+.section_Items{
+    grid-area: body;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(auto-fit, 232px);
+    gap: 0.4rem;
+    border-radius: 1rem;
+}
+
+.itemCard_wrapper{
+    text-decoration: none;
 }
 
 .itemCard{
-    margin-top: 1rem;
     display: flex;
+    z-index: 0;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-    width: auto;
-    height: 100%;
     border: 2px solid var(--bluey-gray);
     border-radius: 15px;
+    text-align: center;
+    color: var(--strong-text);
     background-color: var(--element-background);
     box-shadow: 5px 10px 8px var(--surface-shadow);
     transition: 0.3s;
 }
 
+.cardInfo h1,h2,h3,h4,h5,h6, p{
+    margin:0.5rem;
+}
+
 .itemCard:hover{
     cursor: pointer;
+    z-index: 1;
     box-shadow:
             0 6px 12px var(--surface-shadow),
             0 0 10px 4px var(--surface-glow);
-    translate: 0 -1rem;
-    transition: 0.3s ease;
+    translate: 0 -25%;
+    transition: 0.4s ease;
 }
 
-.itemCard .itemInfo{
+.itemCard .cardInfo{
     text-align: center;
     color: var(--title);
 }
 
-.itemCard .itemThumbnail{
-    margin-top: 1rem;
+.itemCard .cardThumbnail{
+    font-size: 0.8rem;
+    margin: 1rem 0;
     border-radius: 15px;
+    width: 80%;
 }
 
-.itemInfo h1,h2,h3,h4,h5,h6, p{
-    margin: 8px 0;
-}
 
 .outletPopUp{
-    position: absolute;
-    top: 50%;
+    z-index: 5;
+    position: fixed;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -10%);
+}
+
+@media (device-width < 450px ){
+    .collectionSec_wrapper{
+        grid-template-columns: 1fr;
+    }
 }

@@ -8,7 +8,7 @@ function App() {
         <>
             <div className="heroSec">
                 <NavLink to="/" className="heroSec_logo">
-                    <img src="src/assets/logo/LogoTitle.svg" alt="logo"/>
+                    <img src="/logo/LogoTitle.svg" alt="logo"/>
                 </NavLink>
                 <nav className="heroSec_nav">
                     <ul>
