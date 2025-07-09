@@ -56,12 +56,19 @@ const Collection = () => {
     return (
         <div className="collectionSec">
             <div className="collectionSec_topbar">
+                <label htmlFor="searchBar" id="searchSymbol">
+                    <img src="/icons/BooksIcon.svg" alt="booksSymbol" className="icon"/>
+                    <p>Search:</p>
+                </label>
                 <div className="topBar_searchBar">
-                    <label htmlFor="searcBar">
-                        <img src="/icons/BooksIcon.svg" alt="booksSymbol" className="icon"/>
-                        <p>Search:</p>
-                    </label>
-                    <input type="text" placeholder="Book title..." id="searcBar" name="searcBar"/>
+                    <div className="inputWrapper">
+                        <input type="text" placeholder="Book title..." id="searchBar" name="searcBar"/>
+                        <button type="submit" id="searchBtn">
+                            <label htmlFor="searchBar">
+                                <img src="icons/searchIcon.svg" alt="searchIcon" id="searchIcon"/>
+                            </label>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div className="outletPopUp">
@@ -83,7 +90,7 @@ const Collection = () => {
                                          onClick={()=>selectItem(item)}
                                          className="itemCard_wrapper">
                                     <div className="itemCard">
-                                        <h2>-{item.rank}-</h2>
+                                        <h2 style={{color:'hsl(51, 39%, 44%)'}}>-{item.rank}-</h2>
                                         <br/>
                                         <h3 className="cardInfo"><i>{item.title}</i>
                                         </h3>
@@ -94,8 +101,7 @@ const Collection = () => {
                             ))}
                         </div>
                     </section>
-                ))
-                }
+                ))}
             </div>
         </div>
     )

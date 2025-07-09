@@ -1,12 +1,29 @@
 import '../assets/styleSheets/Item.css';
 import {ItemProvider, ItemContext} from "./Collection.jsx";
-import {useContext} from "react";
-import {NavLink} from "react-router-dom";
+import {useContext, useEffect} from "react";
+import {NavLink, useNavigate} from "react-router-dom";
 
 const Item = () => {
-    /*const {isbn13} = useParams();*/
     const item = useContext(ItemContext)
-    /*const item = itemList?.results.books.find((book) => book?.primary_isbn13 === bookCode);*/
+
+    /*esc keypress handling*/
+    const navigate = useNavigate(); // for programmatic navigation
+
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape' || event.key === 'Esc') {
+                // Redirect to another route
+                navigate('/collection');
+            }
+        };
+        //listener for all window when Item popUp
+        window.addEventListener('keydown', handleKeyDown);
+
+        // Cleanup listener on component unmount
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [navigate]); //navigate dependency to allow reMount in case of route changes from router
 
     return (
         <ItemProvider>
