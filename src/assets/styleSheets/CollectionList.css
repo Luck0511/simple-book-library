@@ -68,13 +68,11 @@
 
 }
 
-
 #searchBtn{
     margin: 0;
     padding: 0;
     width: 20%;
     border: none;
-    /*border-radius: 0 0.5rem 0.5rem 0;*/
     background-color: var(--important-element);
     cursor: pointer;
     overflow: hidden;
@@ -94,10 +92,6 @@
     padding: 5px;
 }
 
-/*#searchBtn:hover{
-    background-color: var(--hover-element);
-}*/
-
 #searchIcon:hover{
     backdrop-filter: brightness(90%);
 }
@@ -107,6 +101,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+    justify-content: center;
     gap: 4rem;
     padding: 0 10vw;
     box-sizing: border-box;
