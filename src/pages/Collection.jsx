@@ -65,7 +65,7 @@ const Collection = () => {
                         <input type="text" placeholder="Book title..." id="searchBar" name="searcBar"/>
                         <button type="submit" id="searchBtn">
                             <label htmlFor="searchBar">
-                                <img src="icons/searchIcon.svg" alt="searchIcon" id="searchIcon"/>
+                                <img src="/icons/searchIcon.svg" alt="searchIcon" id="searchIcon"/>
                             </label>
                         </button>
                     </div>

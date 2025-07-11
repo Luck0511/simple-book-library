@@ -106,38 +106,44 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100vh;
+    grid-template-rows: 1fr;
     gap: 4rem;
     padding: 0 10vw;
     box-sizing: border-box;
 }
 
 .section_Wrapper{
+    width: 100%;
+    height: fit-content;
     display: grid;
     grid-template-areas:
     "header header"
     "body body";
-    grid-template-rows: 8rem 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 8rem auto;
+    grid-template-columns: auto;
 }
 
 .sectionHeader{
     grid-area: header;
     text-align: center;
     height: 100%;
+    margin: 0;
 }
 
 .section_Items{
     grid-area: body;
     display: grid;
+    height: fit-content;
     grid-template-columns: 50% 50%;
-    grid-template-rows: repeat(auto-fit, 232px);
-    gap: 0.4rem;
+    grid-template-rows: repeat(9, 30vh);
     border-radius: 1rem;
 }
 
 .itemCard_wrapper{
     text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0.2rem;
 }
 
 .itemCard{
@@ -145,7 +151,9 @@
     z-index: 0;
     flex-direction: column;
     justify-content: space-evenly;
+    width: 100%;
     align-items: center;
+    box-sizing: border-box;
     border: 2px solid var(--bluey-gray);
     border-radius: 15px;
     text-align: center;
@@ -190,7 +198,24 @@
 }
 
 @media (device-width < 450px ){
+    /*collection list responsive*/
     .collectionSec_wrapper{
         grid-template-columns: 1fr;
+    }
+
+    /*searchBar responsive*/
+    .collectionSec_topbar{
+        display: flex;
+        flex-direction: column;
+    }
+    #searchSymbol{
+        margin: 1rem 0;
+    }
+    .topBar_searchBar{
+        justify-content: center;
+    }
+    .inputWrapper #searchBar{
+        padding: 0 1rem 0 0;
+        text-align: center;
     }
 }
