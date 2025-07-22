@@ -20,7 +20,6 @@
   background-color: var(--side-background);
   color: var(--text-on-side);
 }
-
 .heroSec .heroSec_logo{
   display: flex;
   align-items: center;
@@ -80,4 +79,22 @@
   animation: pulse-glow 2.5s ease-in-out infinite;
   color: var(--pressed-text);
   translate: 0 0.5rem;
+}
+@media only screen and (max-width: 600px){
+  .heroSec {
+    height: 20vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0;
+  }
+  .heroSec .heroSec_logo{
+    height: 45%;
+    margin: 0 auto;
+  }
+  .heroSec .heroSec_nav{
+    width: 100%;
+  }
+  .heroSec .heroSec_nav ul{
+    margin: 0 auto;
+  }
 }

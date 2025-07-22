@@ -71,11 +71,6 @@ const Collection = () => {
                     </div>
                 </div>
             </div>
-            <div className="outletPopUp">
-                <ItemProvider passedItem={selectedItem}>
-                    <Outlet/>
-                </ItemProvider>
-            </div>
             {loading && <h2 style={{textAlign: 'center', fontSize: '32px', color: 'var(--title)'}}>Loading
                 bestsellers...</h2>}
             <div className="collectionSec_wrapper">
@@ -102,6 +97,11 @@ const Collection = () => {
                         </div>
                     </section>
                 ))}
+            </div>
+            <div className="outletPopUp">
+                <ItemProvider passedItem={selectedItem}>
+                    <Outlet/>
+                </ItemProvider>
             </div>
         </div>
     )
