@@ -4,6 +4,7 @@ import {Outlet} from "react-router";
 import {NavLink} from "react-router-dom";
 import {createContext, useEffect, useState} from "react";
 import axios from 'axios';
+import {PuffLoader} from "react-spinners";
 
 const apiKey = import.meta.env.VITE_apikey;
 const bestNonFiction = `https://api.nytimes.com/svc/books/v3/lists/current/combined-print-and-e-book-nonfiction.json?api-key=${apiKey}`
@@ -71,8 +72,13 @@ const Collection = () => {
                     </div>
                 </div>
             </div>
-            {loading && <h2 style={{textAlign: 'center', fontSize: '32px', color: 'var(--title)'}}>Loading
-                bestsellers...</h2>}
+            {
+                loading &&
+                <div className="loadingWrapper">
+                    <PuffLoader color="hsla(226, 100%, 3%, 1)" size={60}/>
+                    <h3>Loading Bestseller...</h3>
+                </div>
+            }
             <div className="collectionSec_wrapper">
                 {bestCollections?.map((bestList, index) => (
                     <section className="section_Wrapper" key={index}>
