@@ -102,9 +102,14 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     justify-content: center;
-    gap: 4rem;
-    padding: 0 10vw;
+    gap: 6rem;
+    padding: 0 20vw;
     box-sizing: border-box;
+}
+
+#searchResult{
+    grid-template-columns: 1fr;
+    padding: 0 30vw;
 }
 
 .section_Wrapper{
@@ -120,12 +125,14 @@
 
 .sectionHeader{
     grid-area: header;
+    align-content: center;
     text-align: center;
     height: 100%;
     margin: 0;
 }
 
 .section_Items{
+    width: 100%;
     grid-area: body;
     display: grid;
     height: fit-content;
@@ -202,6 +209,12 @@
     /*collection list responsive*/
     .collectionSec_wrapper{
         grid-template-columns: 1fr;
+    }
+    .section_Items{
+        grid-template-rows: repeat(9, 100%);
+    }
+    .itemCard{
+        height: 100%;
     }
 
     /*searchBar responsive*/

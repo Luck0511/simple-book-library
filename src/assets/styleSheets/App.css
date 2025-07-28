@@ -36,16 +36,17 @@
 }
 
 .heroSec .heroSec_nav{
+  width: 35vw;
   display: flex;
   align-items: center;
 }
 
 .heroSec .heroSec_nav ul{
+  width: 100%;
   padding: 0;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 3rem;
 }
 
 .heroSec .heroSec_nav ul li{

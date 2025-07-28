@@ -1,15 +1,15 @@
 import '../assets/styleSheets/personalStyle.css';
 import '../assets/styleSheets/CollectionList.css';
 import {Outlet} from "react-router";
-import {NavLink} from "react-router-dom";
-import {createContext, useEffect, useState} from "react";
+import {createContext, useState} from "react";
 import axios from 'axios';
 import {PuffLoader} from "react-spinners";
+import {SearchRes} from "./SearchRes.jsx";
+import {BestCollection} from "./BestCollection.jsx";
 
-const apiKey = import.meta.env.VITE_apikey;
-const bestNonFiction = `https://api.nytimes.com/svc/books/v3/lists/current/combined-print-and-e-book-nonfiction.json?api-key=${apiKey}`
-const bestFiction = `https://api.nytimes.com/svc/books/v3/lists/combined-print-and-e-book-fiction.json?api-key=${apiKey}`
+const googleApiKey = import.meta.env.VITE_googleKey;
 
+/*selected item context provider*/
 export const ItemContext = createContext(null);
 export const ItemProvider = ({children, passedItem}) => {
     return (
@@ -19,41 +19,73 @@ export const ItemProvider = ({children, passedItem}) => {
     );
 };
 
+/*collections context provider*/
+export const CollectionListContext = createContext(null);
+export const CollectionListProvider = ({children, collection}) => {
+    return (
+        <CollectionListContext.Provider value={collection}>
+            {children}
+        </CollectionListContext.Provider>
+    )
+}
+
 const Collection = () => {
-    const [bestCollections, setCollections] = useState([]);
+    const [showRes, setShowRes] = useState(false);
+
+    /*loading set logic --> setLoading sets loading state*/
     const [loading, setLoading] = useState(false);
+    const changeLoading = (newState) => {
+        setLoading(newState);
+    }
 
-    /*bestsellers collection setUp*/
-    useEffect(() => {
-        const fetchBest = async () => {
-            console.log('Fetching bestseller...');
-            try {
-                setLoading(true);
-                const [nonFiction, fiction] = await Promise.all([
-                    axios.get(bestNonFiction)
-                        .then((response) => response.data),
-                    axios.get(bestFiction)
-                        .then((response) => response.data),
-                ]);
-                setCollections([nonFiction.results, fiction.results]);
-                console.log('Book fetching successful')
-            } catch (error) {
-                setLoading(false);
-                console.error('Error fetching books:', error);
-            } finally {
-                console.log('Fetching ended');
-                setLoading(false);
-            }
+    /*save value from input searchbar*/
+    const [getValue, setValue] = useState('');
+    /*parse input to make it url friendly*/
+    const parseValue = (input) => {
+        setValue(input.trim().replace(/\s+/g, '-'))
+    }
+
+    /*reset search*/
+    const resetSearch = ()=>{
+        setShowRes(false);
+        setValue('');
+    }
+
+    /*fetch search result*/
+    const enhancedQuery = `${getValue}`;
+    const googleBooks = `https://www.googleapis.com/books/v1/volumes?q=${enhancedQuery}&langRestrict=en&maxResults=25&key=${googleApiKey}`
+
+    const [resList, setResList] = useState([]);
+
+    const fetchSearch = async (e) => {
+        e.preventDefault();
+        setShowRes(true);
+        setLoading(true);
+        if(getValue===''){
+            setShowRes(false);
+            setLoading(false);
         }
-        fetchBest().catch((error) => console.error(error));
-    }, [])
+        try {
+            console.log('Fetching results...');
+            console.log(googleBooks)
+            const response = await axios.get(googleBooks);
+            setResList(response.data.items);
+            console.log('Book fetching successful');
+        } catch (error) {
+            console.error('Error fetching books:', error);
+        } finally {
+            console.log('Fetching ended');
+            setLoading(false);
+        }
+    }
 
+    /*select item from collection*/
     const [selectedItem, setSelectedItem] = useState(null);
-
     const selectItem = (item) => {
         setSelectedItem(item);
-        console.log('done');
+        console.log('item selected: ', selectedItem);
     }
+
     return (
         <div className="collectionSec">
             <div className="collectionSec_topbar">
@@ -62,47 +94,40 @@ const Collection = () => {
                     <p>Search:</p>
                 </label>
                 <div className="topBar_searchBar">
-                    <div className="inputWrapper">
-                        <input type="text" placeholder="Book title..." id="searchBar" name="searcBar"/>
+                    <form onSubmit={fetchSearch} className="inputWrapper">
+                        <input type="text"
+                               placeholder="Book title..."
+                               id="searchBar"
+                               name="searcBar"
+                               onChange={(e) => parseValue(e.target.value)}/>
                         <button type="submit" id="searchBtn">
                             <label htmlFor="searchBar">
                                 <img src="/icons/searchIcon.svg" alt="searchIcon" id="searchIcon"/>
                             </label>
                         </button>
-                    </div>
+                    </form>
                 </div>
             </div>
+            {/*loading logo*/}
             {
                 loading &&
                 <div className="loadingWrapper">
                     <PuffLoader color="hsla(226, 100%, 3%, 1)" size={60}/>
-                    <h3>Loading Bestseller...</h3>
+                    <h3>Loading...</h3>
                 </div>
             }
+            {/*displaying collections*/}
             <div className="collectionSec_wrapper">
-                {bestCollections?.map((bestList, index) => (
-                    <section className="section_Wrapper" key={index}>
-                        <h2 className="sectionHeader"><b><i>Bestsellers of the
-                            week:</i></b><br/>{bestList.display_name}</h2>
-                        <div className="section_Items">
-                            {bestList.books?.map((item) => (
-                                <NavLink key={item.primary_isbn13}
-                                         to={`item`}
-                                         onClick={()=>selectItem(item)}
-                                         className="itemCard_wrapper">
-                                    <div className="itemCard">
-                                        <h2 style={{color:'hsl(51, 39%, 44%)'}}>-{item.rank}-</h2>
-                                        <br/>
-                                        <h3 className="cardInfo"><i>{item.title}</i>
-                                        </h3>
-                                        <h4 className="cardInfo">{item.author}</h4>
-                                        <img className="cardThumbnail" src={item.book_image} alt="Cover Image"/>
-                                    </div>
-                                </NavLink>
-                            ))}
-                        </div>
-                    </section>
-                ))}
+                {!showRes &&
+                    <BestCollection onLoading={changeLoading} onSelectItem={selectItem}/>
+                }
+            </div>
+            <div className="collectionSec_wrapper" id="searchResult">
+                {showRes &&
+                    <CollectionListProvider collection={resList}>
+                        <SearchRes onSelectItem={selectItem} searchQuery={getValue} clearSearch={resetSearch}/>
+                    </CollectionListProvider>
+                }
             </div>
             <div className="outletPopUp">
                 <ItemProvider passedItem={selectedItem}>
