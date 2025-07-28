@@ -1,5 +1,5 @@
 import '../assets/styleSheets/Item.css';
-import {ItemProvider, ItemContext} from "./Collection.jsx";
+import { ItemContext} from "./Collection.jsx";
 import {useContext, useEffect} from "react";
 import {NavLink, useNavigate} from "react-router-dom";
 
