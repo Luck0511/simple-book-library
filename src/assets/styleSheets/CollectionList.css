@@ -119,15 +119,19 @@
     grid-template-areas:
     "header header"
     "body body";
-    grid-template-rows: 8rem auto;
+    grid-template-rows: 20vh auto;
     grid-template-columns: auto;
 }
 
 .sectionHeader{
     grid-area: header;
-    align-content: center;
+    align-content: start;
     text-align: center;
     height: 100%;
+    margin: 0;
+}
+
+.sectionHeader h2{
     margin: 0;
 }
 
@@ -150,7 +154,7 @@
 
 .itemCard{
     display: flex;
-    z-index: 0;
+    z-index: 0; /*ESSENTIAL*/
     flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
@@ -162,7 +166,17 @@
     color: var(--strong-text);
     background-color: var(--element-background);
     box-shadow: 5px 10px 8px var(--surface-shadow);
-    transition: 0.3s;
+    transition: 0.3s; /*ESSENTIAL*/
+}
+
+.itemCard:hover{
+    cursor: pointer;
+    z-index: 1;
+    box-shadow:
+            0 6px 12px var(--surface-shadow),
+            0 0 10px 4px var(--surface-glow);
+    translate: 0 -25%;
+    transition: 0.4s ease;
 }
 
 .loadingWrapper{
@@ -174,16 +188,6 @@
 
 .cardInfo h1,h2,h3,h4,h5,h6, p{
     margin:0.5rem;
-}
-
-.itemCard:hover{
-    cursor: pointer;
-    z-index: 1;
-    box-shadow:
-            0 6px 12px var(--surface-shadow),
-            0 0 10px 4px var(--surface-glow);
-    translate: 0 -25%;
-    transition: 0.4s ease;
 }
 
 .itemCard .cardInfo{

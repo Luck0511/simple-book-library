@@ -10,7 +10,7 @@ export const BestCollection = ({onLoading, onSelectItem}) => {
     /*bestseller collection state*/
     const [bestCollection, setbestCollection] = useState([]);
 
-    const selectItem = (item)=>{
+    const selectItem = (item) => {
         onSelectItem(item)
     }
 
@@ -42,8 +42,15 @@ export const BestCollection = ({onLoading, onSelectItem}) => {
         <>
             {bestCollection.map((bestList, index) => (
                 <section className="section_Wrapper" key={index}>
-                    <h2 className="sectionHeader"><b><i>Bestsellers of the
-                        week:</i></b><br/>{bestList.display_name}</h2>
+                    <div className="sectionHeader">
+                        <a href="https://developer.nytimes.com" >
+                            <img className="brandingLogo" src="/NYT-apiIcon.png" alt="Data provided by The New York Times"/>
+                        </a>
+                        <h2>
+                            <b><i>Bestsellers of the week:</i></b> <br/>
+                            {bestList.display_name}
+                        </h2>
+                    </div>
                     <div className="section_Items">
                         {bestList.books?.map((item) => (
                             <NavLink key={item.primary_isbn13}

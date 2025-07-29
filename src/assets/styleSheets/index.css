@@ -11,12 +11,54 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body{
-  margin: 0;
-}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Merriweather", serif;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  margin: 0;
+}
+
+footer{
+  background-color: var(--side-background);
+  color: var(--text);
+  height: clamp(15vh, 20vh, 35vh);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footerInfo{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.footerInfo *{
+  width: fit-content;
+  margin: 0 0 0.5rem 1rem;
+}
+
+.footerInfo a{
+  text-decoration: none;
+  color: var(--info-blue)
+}
+.footerInfo a:hover{
+  color: var(--warning-orange);
+}
+.footerInfo a:active{
+  color: var(--bluey-gray);
+}
+
+#copyrightMark{
+  text-align: center;
 }
 
 @media (prefers-color-scheme: light) {
