@@ -12,7 +12,7 @@
 }
 
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, small {
   font-family: "Merriweather", serif;
 }
 
@@ -27,7 +27,7 @@ body{
 footer{
   background-color: var(--side-background);
   color: var(--text);
-  height: clamp(15vh, 20vh, 35vh);
+  min-height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -46,6 +46,20 @@ footer{
   margin: 0 0 0.5rem 1rem;
 }
 
+.footerInfo section{
+  display: flex;
+}
+
+.footerInfo #infoMain{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.footerInfo #infoMain *{
+  margin: 0;
+}
+
 .footerInfo a{
   text-decoration: none;
   color: var(--info-blue)
@@ -59,6 +73,8 @@ footer{
 
 #copyrightMark{
   text-align: center;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 @media (prefers-color-scheme: light) {

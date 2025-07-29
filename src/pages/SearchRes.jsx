@@ -13,6 +13,7 @@ export const SearchRes = ({onSelectItem, searchQuery, clearSearch}) => {
     return (
         <section className="section_Wrapper">
             <section className="sectionHeader">
+                <small><i>Data provided by Nasa</i></small>
                 <h2>Search results for:<br/> <i>{searchQuery}</i></h2>
                 <button onClick={()=>clearSearch()}>Clear research:</button>
             </section>
