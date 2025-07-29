@@ -33,7 +33,7 @@ const Item = () => {
             <img className="itemCover" src={item?.book_image} alt="Cover Image"/>
             <div className="itemInfo">
                 <h2><strong>{item?.title}</strong></h2>
-                <h4><i>{item?.author}</i></h4>
+                <h3><i>{item?.author}</i></h3>
                 <p><i>Publisher:</i> {item?.publisher}</p>
                 <p><i>ISBN code:</i> {item?.primary_isbn13}</p>
                 <br/>

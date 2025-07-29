@@ -150,11 +150,22 @@
     width: 100%;
     box-sizing: border-box;
     padding: 0 0.2rem;
+    z-index: 0; /*ESSENTIAL*/
+    transition: 0.3s; /*ESSENTIAL*/
+}
+/*due to accessibility reason, moved the translate to itemCard_Wrapper (a)*/
+.itemCard_wrapper:hover, .itemCard_wrapper:focus{
+    cursor: pointer;
+    z-index: 1;
+    box-shadow:
+            0 6px 12px var(--surface-shadow),
+            0 0 10px 4px var(--surface-glow);
+    translate: 0 -25%;
+    transition: 0.4s ease;
 }
 
 .itemCard{
     display: flex;
-    z-index: 0; /*ESSENTIAL*/
     flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
@@ -166,18 +177,8 @@
     color: var(--strong-text);
     background-color: var(--element-background);
     box-shadow: 5px 10px 8px var(--surface-shadow);
-    transition: 0.3s; /*ESSENTIAL*/
 }
 
-.itemCard:hover{
-    cursor: pointer;
-    z-index: 1;
-    box-shadow:
-            0 6px 12px var(--surface-shadow),
-            0 0 10px 4px var(--surface-glow);
-    translate: 0 -25%;
-    transition: 0.4s ease;
-}
 
 .loadingWrapper{
     display: flex;

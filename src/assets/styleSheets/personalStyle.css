@@ -9,11 +9,12 @@
     --light-gray: hsla(0, 0%, 65%, 1);                /*text*/
     --darker-gray: hsla(0, 0%, 50%, 1);               /*strong text over ash/gray*/
     --rich-black: hsla(226, 100%, 3%, 1);             /*titles*/
+    --grey-black: hsla(224, 17%, 17%, 1);             /*pressed text*/
 
     --naples-yellow: hsla(44, 81%, 67%, 1);           /*important element*/
     --brighter-naples-yellow: hsla(44, 81%, 72%, 1);  /*hover important element*/
+    --lighter-naples-yellow: hsla(44, 81%, 73%, 1);   /*pressed elements*/
     --naples-yellow-glow: hsla(44, 100%, 72%, 0.85);  /*glow when hover*/
-    --darker-naples-yellow: hsla(44, 81%, 55%, 1);    /*pressed element*/
     --bluey-gray: hsla(223, 18%, 35%, 1);             /*accent border, disabled element*/
     --cool-slate: hsla(223, 10%, 55%, 1);             /*disabled element text*/
 
@@ -64,8 +65,8 @@
     0 0 10px 4px var(--naples-yellow-glow),
     0 0 20px 8px var(--naples-yellow-glow);
     --hover-text: var(--rich-black);
-    --pressed-element: var(--darker-naples-yellow);
-    --pressed-text: var(--bluey-gray);
+    --pressed-element: var(--lighter-naples-yellow);
+    --pressed-text: var(--grey-black);
 }
 
 /*Dark theme*/
@@ -87,8 +88,8 @@
     --element-text: var(--rich-black);
     --hover-element: var(--brighter-naples-yellow);
     --hover-text: var(--rich-black);
-    --pressed-element: var(--darker-naples-yellow);
-    --pressed-text: var(--cool-slate);
+    --pressed-element: var(--lighter-naples-yellow);
+    --pressed-text: var(--grey-black);
     --disabled-element: var(--bluey-gray);
     --disabled-text: var(--cool-slate);
 }

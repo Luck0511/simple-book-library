@@ -58,7 +58,7 @@ export const BestCollection = ({onLoading, onSelectItem}) => {
                                      onClick={() => selectItem(item)}
                                      className="itemCard_wrapper">
                                 <div className="itemCard">
-                                    <h2 style={{color: 'hsl(51, 39%, 44%)'}}>-{item.rank}-</h2>
+                                    <h2 style={{color: 'rgb(65, 52, 11)'}}>-{item.rank}-</h2>
                                     <br/>
                                     <h3 className="cardInfo"><i>{item.title}</i>
                                     </h3>
