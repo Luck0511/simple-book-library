@@ -75,7 +75,6 @@ const Collection = () => {
         } catch (error) {
             setResList([{volumeInfo:{title:"Error", authors:[error.message]}}])
             console.error('Error fetching results:', error);
-            return;
         } finally {
             console.log('Fetching ended');
             setShowRes(true);
