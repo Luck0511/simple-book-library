@@ -42,24 +42,25 @@ const Collection = () => {
     const [getValue, setValue] = useState('');
     /*parse input to make it url friendly*/
     const parseValue = (input) => {
-        setValue(input.trim().replace(/\s+/g, '-'))
+        const cleanInput = input.trim();
+        //encode special characters, then replace spaces with dashes
+        const urlFriendly = encodeURIComponent(cleanInput).replace(/%20/g, '-');
+        setValue(urlFriendly);
     }
 
     /*reset search*/
     const resetSearch = ()=>{
         setShowRes(false);
-        setValue('');
     }
 
     /*fetch search result*/
     const enhancedQuery = `${getValue}`;
-    const googleBooks = `https://www.googleapis.com/books/v1/volumes?q=${enhancedQuery}&langRestrict=en&maxResults=25&key=${googleApiKey}`
+    const googleBooks = `https://www.googleapis.com/books/v1/volumes?q=${enhancedQuery}&projection=full&orderBy=relevance&maxResults=25&key=${googleApiKey}`
 
     const [resList, setResList] = useState([]);
 
     const fetchSearch = async (e) => {
         e.preventDefault();
-        setShowRes(true);
         setLoading(true);
         if(getValue===''){
             setShowRes(false);
@@ -70,11 +71,13 @@ const Collection = () => {
             console.log(googleBooks)
             const response = await axios.get(googleBooks);
             setResList(response.data.items);
-            console.log('Book fetching successful');
+            console.log('Results fetching successful');
         } catch (error) {
-            console.error('Error fetching books:', error);
+            setResList([{volumeInfo:{title:"Error", authors:[error.message]}}])
+            console.error('Error fetching results:', error);
         } finally {
             console.log('Fetching ended');
+            setShowRes(true);
             setLoading(false);
         }
     }
@@ -96,7 +99,8 @@ const Collection = () => {
                 <div className="topBar_searchBar">
                     <form onSubmit={fetchSearch} className="inputWrapper">
                         <input type="text"
-                               placeholder="Book title..."
+                               placeholder="Type here to search..."
+                               autoComplete="off"
                                id="searchBar"
                                name="searcBar"
                                onChange={(e) => parseValue(e.target.value)}/>
@@ -108,7 +112,6 @@ const Collection = () => {
                     </form>
                 </div>
             </div>
-            {/*loading logo*/}
             {
                 loading &&
                 <div className="loadingWrapper">
@@ -123,7 +126,7 @@ const Collection = () => {
                 }
             </div>
             <div className="collectionSec_wrapper" id="searchResult">
-                {showRes &&
+                {showRes && !loading &&
                     <CollectionListProvider collection={resList}>
                         <SearchRes onSelectItem={selectItem} searchQuery={getValue} clearSearch={resetSearch}/>
                     </CollectionListProvider>

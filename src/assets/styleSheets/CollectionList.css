@@ -5,6 +5,7 @@
     align-items: center;
     background-color: var(--background-color);
     width: 100vw;
+    overflow: hidden;
 }
 
 .collectionSec_topbar{
@@ -141,8 +142,17 @@
     display: grid;
     height: fit-content;
     grid-template-columns: 50% 50%;
-    grid-template-rows: repeat(9, 30vh);
+    grid-auto-rows: 35vh;
     border-radius: 1rem;
+}
+
+#clearSearch{
+    position: unset;
+    margin-top: 8px;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem;
+    color: #f8f8f8;
 }
 
 .itemCard_wrapper{
