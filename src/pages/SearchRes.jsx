@@ -7,15 +7,17 @@ export const SearchRes = ({onSelectItem, searchQuery, clearSearch}) => {
     const searchRes = useContext(CollectionListContext)
 
     const selectItem = (item) => {
-        onSelectItem(item)
+        onSelectItem(item);
+        console.log(item);
     }
 
     return (
         <section className="section_Wrapper">
             <section className="sectionHeader">
-                <small><i>Data provided by Nasa</i></small>
-                <h2>Search results for:<br/> <i>{searchQuery}</i></h2>
-                <button onClick={()=>clearSearch()}>Clear research:</button>
+                <small><i>Disclaimer: data are based on your local availability</i></small>
+                <h2>Search results for:<br/> <i>{decodeURIComponent(searchQuery)}</i></h2>
+                <small><i>Data provided by Google Books</i></small><br/>
+                <button className="clearButton" id="clearSearch" onClick={() => clearSearch()}>Clear research:</button>
             </section>
             <div className="section_Items">
                 {searchRes.map((item) => (
@@ -28,7 +30,7 @@ export const SearchRes = ({onSelectItem, searchQuery, clearSearch}) => {
                             </h3>
                             <h4 className="cardInfo">{item.volumeInfo.authors?.[0]}</h4>
                             <img className="cardThumbnail"
-                                 src={item.volumeInfo.imageLinks.thumbnail}
+                                 src={item?.volumeInfo.imageLinks?.smallThumbnail}
                                  alt="Cover Image"/>
                         </div>
                     </NavLink>

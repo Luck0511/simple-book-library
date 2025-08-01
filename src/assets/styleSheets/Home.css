@@ -1,0 +1,34 @@
+.heroBody{
+    width: 100%;
+    padding: 15vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heroBody > .title{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--title);
+}
+
+.title > .text{
+    z-index: 2;
+}
+
+.text > h2{
+    font-size: 400%;
+}
+.text > h3{
+    font-size: 150%;
+}
+
+.title > .backImage{
+    position: absolute;
+    z-index: 1;
+    height: 25%;
+    opacity: 0.2;
+}
