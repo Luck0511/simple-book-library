@@ -1,10 +1,10 @@
 import '../assets/styleSheets/Item.css';
-import { ItemContext} from "./Collection.jsx";
+import {ItemContext} from "./Collection.jsx";
 import {useContext, useEffect} from "react";
 import {NavLink, useNavigate} from "react-router-dom";
 
 const Item = () => {
-    const item = useContext(ItemContext)
+    const item = useContext(ItemContext);
 
     /*esc keypress handling*/
     const navigate = useNavigate(); // for programmatic navigation
@@ -30,25 +30,35 @@ const Item = () => {
             <NavLink to={`/collection`}>
                 <button className="clearButton">X</button>
             </NavLink>
-            <img className="itemCover" src={item?.book_image} alt="Cover Image"/>
+            <img className="itemCover"
+                 src={item?.book_image || item?.volumeInfo?.imageLinks.thumbnail}
+                 alt="Cover Image"/>
             <div className="itemInfo">
-                <h2><strong>{item?.title}</strong></h2>
-                <h3><i>{item?.author}</i></h3>
-                <p><i>Publisher:</i> {item?.publisher}</p>
-                <p><i>ISBN code:</i> {item?.primary_isbn13}</p>
+                <h2><strong>{item?.title || item?.volumeInfo?.title}</strong></h2>
+                <h3><i>{item?.author || item?.volumeInfo?.authors[0]}</i></h3>
+                <p><i>Genre:</i> {item?.volumeInfo?.categories || <u>not defined</u>}</p>
+                <p><i>Publisher:</i> {item?.publisher || item?.volumeInfo?.publisher}</p>
+                <p><i>ISBN code:</i> {item?.primary_isbn13 || item?.volumeInfo?.industryIdentifiers[0].identifier}
+                </p>
                 <br/>
-                <p><i>Plot:</i><br/>{item?.description}</p>
+                <p><i>Plot:</i><br/>{item?.description || item?.volumeInfo?.description}</p>
                 <br/>
-                <h5 style={{margin: 0}}>Buy links:</h5>
+                {item?.buy_links && <>
+                <h4 style={{margin: 0}}>Buy links:</h4>
                 <ul style={{margin: 0}}>
-                    {item?.buy_links.map((link, index) => (
+                    {item?.buy_links?.map((link, index) => (
                         <li key={index}>
                             <a href={link.url}><i>{link.name}</i></a>
                         </li>
                     ))}
                 </ul>
+                    </>
+                }
+                {item?.saleInfo &&
+                    <h4><a href={item?.saleInfo.buyLink}>Buy Link</a></h4>
+                }
             </div>
         </div>
-    )
+)
 }
 export default Item;
