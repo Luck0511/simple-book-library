@@ -1,7 +1,7 @@
 #root {
   margin: 0;
   background-color: var(--background-color);
-  width: 100vw;
+  width: 100%;
 }
 
 .outletChild{
@@ -14,7 +14,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: clamp(100px, 15vh, 25vh);
   padding: 0 3rem;
   border-radius: 0 0 2rem 2rem;

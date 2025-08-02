@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     background-color: var(--background-color);
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -158,6 +158,7 @@
 .itemCard_wrapper{
     text-decoration: none;
     width: 100%;
+    height: fit-content;
     box-sizing: border-box;
     padding: 0 0.2rem;
     z-index: 0; /*ESSENTIAL*/
@@ -224,9 +225,6 @@
     /*collection list responsive*/
     .collectionSec_wrapper{
         grid-template-columns: 1fr;
-    }
-    .section_Items{
-        grid-template-rows: repeat(9, 100%);
     }
     .itemCard{
         height: 100%;

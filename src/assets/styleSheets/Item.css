@@ -49,13 +49,19 @@
 
     }
     .itemCover{
-        margin-top: 32px;
+        margin-top: 3rem;
         align-self: center;
         width: 75%;
         border-radius: 25px;
     }
     .itemInfo{
         padding: 1rem;
+        margin-bottom: 5rem;
         text-align: center;
+        overflow: unset;
+    }
+    .clearButton{
+        width: 40px;
+        height: 40px;
     }
 }
