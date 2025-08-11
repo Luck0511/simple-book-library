@@ -1,34 +1,91 @@
-.heroBody{
+.heroBody {
     width: 100%;
-    padding: 15vh 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.heroBody > .title{
+.heroBody > .title {
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 15vh 0;
     color: var(--title);
 }
 
-.title > .text{
+.title > .text {
     z-index: 2;
 }
 
-.text > h2{
+.text > h2 {
     font-size: 400%;
 }
-.text > h3{
+
+.text > h3 {
     font-size: 150%;
 }
 
-.title > .backImage{
+.title > .backImage {
     position: absolute;
     z-index: 1;
     height: 25%;
     opacity: 0.2;
+}
+
+.heroContent {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10vw 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.heroContent > div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+.heroContent > div > * {
+    margin: 3vh 0;
+}
+
+.heroContent h4{
+    font-size: 150%;
+    margin: 5vh 0 0;
+}
+
+.heroContent .navLink {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 40px;
+    border-radius: 0.5rem;
+    background-color: var(--important-element);
+    color: var(--element-text);
+    font-weight: bold;
+    transition-duration: 0.3s;
+}
+
+.heroContent .navLink:hover {
+    background-color: var(--hover-element);
+    box-shadow: var(--borderBox-hover-glow);
+    color: var(--hover-text);
+    translate: 0 0.25rem;
+    transition-duration: 0.3s;
+}
+
+.heroContent .active {
+    background-color: var(--pressed-element);
+    animation: pulse-glow 2.5s ease-in-out infinite;
+    color: var(--pressed-text);
+    translate: 0 0.5rem;
 }

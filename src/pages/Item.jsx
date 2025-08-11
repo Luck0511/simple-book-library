@@ -30,6 +30,7 @@ const Item = () => {
             <NavLink to={`/collection`}>
                 <button className="clearButton">X</button>
             </NavLink>
+
             <img className="itemCover"
                  src={item?.book_image || item?.volumeInfo?.imageLinks.thumbnail}
                  alt="Cover Image"/>

@@ -1,0 +1,39 @@
+.aboutContent{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10vh 10vw;
+    display:  grid;
+    gap: 3rem;
+    grid-template-columns:1fr 1fr;
+}
+
+/* Alternating vertical offset */
+.aboutContent >*:nth-child(odd) {
+    margin-top: 0; /* Left column starts at top */
+}
+.aboutContent >*:nth-child(even) {
+    margin-top: 200px; /* Right column staggered down */
+}
+
+.backImage {
+    position: absolute;
+    z-index: 0;
+    width: 50%;
+    opacity: 0.2;
+    top: 40%;
+    left: 25%;
+}
+
+.aboutContent h4{
+    font-size: 2rem;
+}
+
+@media only screen and (max-width: 600px){
+    .aboutContent{
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .aboutContent >*:nth-child(even) {
+        margin-top: 40px; /* Right column staggered down */
+    }
+}
