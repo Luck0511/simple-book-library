@@ -36,7 +36,7 @@ const Item = () => {
                  alt="Cover Image"/>
             <div className="itemInfo">
                 <h2><strong>{item?.title || item?.volumeInfo?.title}</strong></h2>
-                <h3><i>{item?.author || item?.volumeInfo?.authors[0]}</i></h3>
+                <h3><i>{item?.author || item?.volumeInfo?.authors?.[0]}</i></h3>
                 <p><i>Genre:</i> {item?.volumeInfo?.categories || <u>not defined</u>}</p>
                 <p><i>Publisher:</i> {item?.publisher || item?.volumeInfo?.publisher}</p>
                 <p><i>ISBN code:</i> {item?.primary_isbn13 || item?.volumeInfo?.industryIdentifiers[0].identifier}

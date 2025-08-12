@@ -245,4 +245,7 @@
         padding: 0 1rem 0 0;
         text-align: center;
     }
+    .section_Wrapper{
+        grid-template-rows: 24vh auto;
+    }
 }
